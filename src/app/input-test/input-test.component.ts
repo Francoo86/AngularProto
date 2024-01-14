@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,6 +10,10 @@ import { Component } from '@angular/core';
 export class InputTestComponent {
   name : string = "";
   
+  constructor(http : HttpClient){
+
+  }
+
   printLog(value : any) : void {
     console.log(value);
   }
