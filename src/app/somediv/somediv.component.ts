@@ -8,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 
 export class SomedivComponent implements OnInit {
   ngOnInit(): void {
-      alert("Estoy empezando uhm aha")
+      alert("Estoy empezando uhm aha");
   }
 }
