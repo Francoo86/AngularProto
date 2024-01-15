@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Nuevo titulo i guess';
+  title : string = 'Nuevo titulo i guess';
+  key : string = process.env["API_KEY"] || "NO_KEY";
 }
