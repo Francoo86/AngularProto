@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { APIService } from '../api.service';
 
 @Component({
   selector: 'input-test',
@@ -10,7 +11,7 @@ import { Component } from '@angular/core';
 export class InputTestComponent {
   name : string = "";
   
-  constructor(http : HttpClient){
+  constructor(apiServ : APIService){
 
   }
 
