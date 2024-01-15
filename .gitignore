@@ -39,6 +39,10 @@ testem.log
 
 .env
 
+# Environment files.
+environment.ts
+environment.development.ts
+
 # System files
 .DS_Store
 Thumbs.db

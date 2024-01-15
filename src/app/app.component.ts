@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title : string = 'Nuevo titulo i guess';
-  key : string = process.env["API_KEY"] || "NO_KEY";
+  key = process.env["API_KEY"];
 }
