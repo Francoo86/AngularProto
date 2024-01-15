@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IEnvironment, environment} from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title : string = 'Nuevo titulo i guess';
-  key = process.env["API_KEY"];
+  //key = process.env["API_KEY"];
+
+  constructor() {
+      console.log((environment as IEnvironment).API_URL);
+  }
 }
