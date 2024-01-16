@@ -36,15 +36,16 @@ export class AppComponent {
   fetchCharacter(character : string) : void {
     character = StringHelpers.makeSuitable(character);
     
-    this.apiServ.getCharacterInfo(character).subscribe(
-      (resp) => {
-        this.character = resp;
+      this.apiServ.getCharacterInfo(character).subscribe({
+        next: (resp) => {
+          this.character = resp;
 
-        console.log(this.character);
-      },
+          console.log(this.character);
+        },
 
-      (error) => {
-        console.log(`Can't fetch the character: ${character}`);
+        error: () => {
+            console.log(`Can't fetch the character: ${character}`);
+        }
       }
     )
   }
