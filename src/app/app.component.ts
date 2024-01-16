@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIService } from './api.service';
 import { SelectableTypes } from './objects/selectable-types';
 import { StringHelpers } from './utility/string-helpers';
+import { Character } from './objects/character';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +13,11 @@ import { StringHelpers } from './utility/string-helpers';
 export class AppComponent {
   title : string = 'Nuevo titulo i guess';
   selectables? : SelectableTypes;
+  character? : Character;
 
   constructor(private apiServ : APIService) {
     this.printSelectables();
+    this.fetchCharacter("mongodb");
   }
 
   printSelectables() : void  {
@@ -30,9 +33,19 @@ export class AppComponent {
     )
   }
 
-  printCharacter(character : string) : void {
+  fetchCharacter(character : string) : void {
     character = StringHelpers.makeSuitable(character);
-  
-    alert(character);
+    
+    this.apiServ.getCharacterInfo(character).subscribe(
+      (resp) => {
+        this.character = resp;
+
+        console.log(this.character);
+      },
+
+      (error) => {
+        console.log(`Can't fetch the character: ${character}`);
+      }
+    )
   }
 }

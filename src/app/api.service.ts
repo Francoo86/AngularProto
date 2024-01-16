@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IEnvironment, environment} from 'src/environments/environment.development';
-import { Observable } from 'rxjs';
 import { SelectableTypes } from './objects/selectable-types';
+import { Character } from './objects/character';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +18,10 @@ export class APIService {
   private lastData : any = null;
 
   getSelectableData() {
-    return this.http.get(this.url);
+    return this.http.get<SelectableTypes>(this.url);
   }
 
   getCharacterInfo(charName : string) {
-    return this.http.get<SelectableTypes>(this.url + "/characters/" + charName);
+    return this.http.get<Character>(this.url + "characters/" + charName);
   }
 }
