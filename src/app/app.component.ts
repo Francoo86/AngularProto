@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { APIService } from './api.service';
+import { SelectableTypes } from './objects/selectable-types';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent {
   title : string = 'Nuevo titulo i guess';
-  //key = process.env["API_KEY"];
+  selectables? : SelectableTypes;
 
-  /*
-  constructor() {
-      console.log((environment as IEnvironment).API_URL);
-  }*/
+  constructor(private apiServ : APIService) {
+    this.printSelectables();
+  }
+
+  printSelectables() : void  {
+    this.apiServ.getSelectableData().subscribe(
+      (resp) => {
+        console.log(resp);
+        this.selectables = resp;
+
+        if (this?.selectables?.types && this.selectables.types.length > 0) {
+          console.log("the selectable: ", this.selectables.types[0]);
+        }
+      }
+    )
+  }
 }
