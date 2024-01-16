@@ -17,7 +17,6 @@ export class AppComponent {
 
   constructor(private apiServ : APIService) {
     this.printSelectables();
-    this.fetchAllCharacters();
   }
 
   printSelectables() : void  {

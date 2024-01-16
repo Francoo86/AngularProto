@@ -11,11 +11,11 @@ import { Character } from './objects/character';
 //Yes this loads first.
 export class APIService {
   private url : string = (environment as IEnvironment).API_URL;
+
   constructor(private http : HttpClient) { 
     console.log((environment as IEnvironment).API_URL);
   }
 
-  private lastData : any = null;
   private CHARACTERS_URL = this.url + "characters/";
 
   getSelectableData() {
