@@ -5,7 +5,8 @@ import { APIService } from '../api.service';
 @Component({
   selector: 'input-test',
   templateUrl: './input-test.component.html',
-  styleUrls: ['./input-test.component.css']
+  styleUrls: ['./input-test.component.css'],
+  providers: [APIService],
 })
 
 export class InputTestComponent {
