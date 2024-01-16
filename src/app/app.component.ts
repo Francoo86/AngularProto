@@ -17,7 +17,7 @@ export class AppComponent {
 
   constructor(private apiServ : APIService) {
     this.printSelectables();
-    this.fetchCharacter("mongodb");
+    this.fetchAllCharacters();
   }
 
   printSelectables() : void  {
@@ -48,5 +48,17 @@ export class AppComponent {
         }
       }
     )
+  }
+
+  fetchAllCharacters() : void {
+    this.apiServ.getAllCharacters().subscribe({
+      next: (resp) => {
+        const allCharacters : Character[] = resp; 
+
+        allCharacters.forEach(char => {
+          console.log(char?.name);
+        });
+      }
+    })
   }
 }
