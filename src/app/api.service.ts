@@ -16,12 +16,17 @@ export class APIService {
   }
 
   private lastData : any = null;
+  private CHARACTERS_URL = this.url + "characters/";
 
   getSelectableData() {
     return this.http.get<SelectableTypes>(this.url);
   }
 
   getCharacterInfo(charName : string) {
-    return this.http.get<Character>(this.url + "characters/" + charName);
+    return this.http.get<Character>(this.CHARACTERS_URL + charName);
+  }
+
+  getAllCharacters() {
+    return this.http.get<Character[]>(this.CHARACTERS_URL + "all");
   }
 }
