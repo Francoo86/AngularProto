@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from './api.service';
 import { SelectableTypes } from './objects/selectable-types';
+import { StringHelpers } from './utility/string-helpers';
 
 @Component({
   selector: 'app-root',
@@ -27,5 +28,11 @@ export class AppComponent {
         }
       }
     )
+  }
+
+  printCharacter(character : string) : void {
+    character = StringHelpers.makeSuitable(character);
+  
+    alert(character);
   }
 }
