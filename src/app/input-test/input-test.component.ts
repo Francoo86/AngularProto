@@ -11,7 +11,7 @@ import { Character } from '../objects/character';
 
 export class InputTestComponent {
   name : string = "";
-  avalaibleCharacters : string[] = [];
+  availableCharacters : string[] = [];
   
   constructor(private apiServ : APIService){
     this.initializeCharacters();
@@ -25,7 +25,7 @@ export class InputTestComponent {
         const receivedChars : Character[] = resp;
 
         receivedChars.forEach(char => {
-          this.avalaibleCharacters.push(char.name);
+          this.availableCharacters.push(char.name);
         });
       }
     })
@@ -33,6 +33,6 @@ export class InputTestComponent {
 
   printLog(value : any) : void {
     console.log(value);
-    console.log(this.avalaibleCharacters);
+    console.log(this.availableCharacters);
   }
 }
