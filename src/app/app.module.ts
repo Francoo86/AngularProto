@@ -7,12 +7,14 @@ import { SomedivComponent } from './somediv/somediv.component';
 import { InputTestComponent } from './input-test/input-test.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CharacterInfoComponent } from './character-info/character-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SomedivComponent,
-    InputTestComponent
+    InputTestComponent,
+    CharacterInfoComponent
   ],
   imports: [
     BrowserModule,

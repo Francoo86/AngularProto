@@ -1,4 +1,2 @@
 <input [(ngModel)]="name" (ngModelChange)="printLog($event)">
-<div *ngFor="let char of availableCharacters">
-    <p>{{char}}</p>
-</div>
+<app-character-info [characters]="availableCharacters"></app-character-info>
